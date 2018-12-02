@@ -35,6 +35,20 @@ class User {
 		}
 	}
 
+	static function fetchAll(mysqli $conn) {
+		$users = array();
+		$sql = 'SELECT * FROM USERS';
+		if($result = $conn->query($sql)){
+			while($row = $result->fecth_assoc()){
+				$user = new User($row);
+
+				$users[] = $user;
+			}
+		}
+
+		return $users;
+	}
+
 }
 
 ?>
