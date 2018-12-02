@@ -49,6 +49,32 @@ class Users {
 		return $users;
 	}
 
+	static function userExists(mysqli $conn,$email) {
+
+		$stmt = $conn->prepare(
+			"SELECT Email from Users WHERE Email=?"
+		);
+
+		$stmt->bind_param("s", $email);
+		$stmt->execute();
+
+		$result->$stmt->get_result();
+
+		if(mysqli_num_rows($result) > 0){
+			return true;
+		}
+
+		return false;
+	}
+
+	static function passwordMatches(mysqli $conn,$email,$pword){
+
+	}
+
+	static function getUserID(mysqli $conn,$email){
+		
+	}
+
 }
 
 ?>
