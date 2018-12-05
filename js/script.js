@@ -107,6 +107,7 @@ $(document).ready(function(e){
 		            To Do Item: <input type="text" name="todo_item"> 
 		            Tag: <input type="text" name="tag_${nextTag}">
 		            <div id="to_do_${nextToDo}_tag_${nextTag}" class="basic stopwatch"></div>
+                <input type="submit" name="to_do_item">
 		               
 	            </div>`;
 
