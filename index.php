@@ -16,19 +16,19 @@
          crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script>
-         // function processItem(ID){
-         //     var name=document.getElementById(`item_name_${ID}`).value;
+         function processItem(ID){
+             var name=document.getElementById(`item_name_${ID}`).value;
              
-         //     $.ajax({
-         //       type:'post',
-         //       url:'submit_to_do.php',
-         //       data:'name='+name,
-         //       success: function(html){
-         //          $('#results_container').html(html);
-         //       }
-         //     });
-         //     return false;
-         // }
+             $.ajax({
+               type:'post',
+               url:'submit_to_do.php',
+               data:'name='+name,
+               success: function(html){
+                  $('#results_container').html(html);
+               }
+             });
+             return false;
+         }
          
       </script>
    </head>
@@ -51,8 +51,8 @@
                         To Do Item: <input type="text" id="item_name_0" name="todo_item_name">
                         Tag: <input type="text" id="tag_0" name="tag_0">
                         <div id="to_do_0_tag_0" class="basic stopwatch"></div>
-                        <!-- <input type="submit" id="0" class="submit" name="to_do_item" onclick="processItem(this.id);"> -->
-                        <input type="submit" id="0" class="submit" name="to_do_item">
+                        <input type="submit" id="0" class="submit" name="to_do_item" onclick="processItem(this.id);">
+                        <!-- <input type="submit" id="0" class="submit" name="to_do_item"> -->
                      </div>
                   </form>
                </div>

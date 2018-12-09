@@ -90,30 +90,36 @@ $(document).ready(function (e) {
 
 
   //generating new response forms and appending to tracker portion
-  var results_html = document.getElementById('results_container');
+  // var results_html = document.getElementById('results_container');
 
-  $('.submit').click(function (e) {
+  // $('.submit').click(function (e) {
+
+  //   e.preventDefault();
+
+  //   var name = document.getElementById(`item_name_${this.id}`).value;
+
+  //   $.ajax({
+
+  //     type: 'post',
+  //     url: 'submit_to_do.php',
+  //     data: 'name=' + name,
+  //     success: function (html) {
+  //       results_html = results_html + '</br>' + html;
+
+  //       $('#results_container').html(results_html);
+
+  //     }
+  //   });
+
+  //   return false;
+
+  // });
+
+    $('.submit').click(function (e) {
 
     e.preventDefault();
 
-    var name = document.getElementById(`item_name_${this.id}`).value;
-
-    $.ajax({
-
-      type: 'post',
-      url: 'submit_to_do.php',
-      data: 'name=' + name,
-      success: function (html) {
-        results_html = results_html + '</br>' + html;
-
-        $('#results_container').html(results_html);
-
-      }
     });
-
-    return false;
-
-  });
 
   // generates unique IDs for each to do item and tag
 
