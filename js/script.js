@@ -88,35 +88,52 @@ $(document).ready(function(e){
       new Stopwatch(elems[i]);
     }
 
-    var nextToDo = 1;
-    var nextTag = 1;
 
-	var maxItems = 5;
-	var x = 1;
+  $('.submit').click( function(e){
 
-	function updateToDoStuff(){
-		nextToDo++;
-		nextTag++;
-	}
+    e.preventDefault();
+
+  });
+
+// generates unique IDs for each to do item and tag
+
+  var nextToDo = 1;
+  var nextTag = 1;
+
+  var maxItems = 5;
+  var x = 1;
+
+
+
+
+  function updateToDoStuff(){
+    nextToDo++;
+    nextTag++;
+  }
+
+// add and remove to do item containers
 
 	$('#add').click( function(e){
 
-		var html = `<div class="to_do" id="to_do_${nextToDo}">
+		var html = `
+            <form method='POST'>
+              <div class="to_do" id="to_do_${nextToDo}">
 
 		            <a href="#" id="remove">x</a>
-		            To Do Item: <input type="text" name="todo_item"> 
-		            Tag: <input type="text" name="tag_${nextTag}">
+		            To Do Item: <input type="text" id="item_name_${nextToDo}" name="todo_item_name"> 
+		            Tag: <input type="text" id="tag_${nextTag}" name="tag">
 		            <div id="to_do_${nextToDo}_tag_${nextTag}" class="basic stopwatch"></div>
-                <input type="submit" name="to_do_item">
+                <input type="submit" id="${nextToDo}" name="to_do_item" onclick="return processItem(this.id);">
 		               
-	            </div>`;
+	            </div>
+            </form>`;
 
 		if(x <= maxItems){
 				
 			$('#to_do_container').append(html);
 			x++;
 			var elem = document.getElementById(`to_do_${nextToDo}_tag_${nextTag}`);
-			var timer = new Stopwatch(elem);
+			var timer = new Stopwatch(elem,1000000);
 			updateToDoStuff();
 			
 		}

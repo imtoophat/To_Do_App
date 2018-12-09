@@ -51,13 +51,25 @@
     float: right;
   }
 
+  /* Wrapper */
+
+  .wrapper {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+  }
+
   /* Main thing */ 
 
   .main_body_div {
+
+    float:left;
     margin-top: 1vw;
     margin: auto;
-    width: 75%;
+    width: 55%;
     padding: 1vw;
+
+    background-color:#a5f7f7;
   }
 
   .main_body_div h1,p {
@@ -67,5 +79,21 @@
     font-style: italic;
   }
 
- 
+  /* Tracker Results Container */
+
+  .tracker_body{
+
+    padding: 1vw;
+    float:right;
+    width:43%;
+    height:200px;
+  }
+
+  .tracker_body h1,p {
+    text-align: center;
+  }
+  .tracker_body p {
+    font-style: italic;
+  }
+
   
