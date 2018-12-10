@@ -139,17 +139,17 @@ $(document).ready(function (e) {
   $('#add').click(function (e) {
 
     var html = `
-            <form method='POST'>
-              <div class="to_do" id="to_do_${nextToDo}">
-
+            
+            <div class="to_do" id="to_do_${nextToDo}">
+              <form method='POST'>
                 <a href="#" id="remove">x</a>
                 To Do Item: <input type="text" id="item_name_${nextToDo}" name="todo_item_name"> 
                 Tag: <input type="text" id="tag_${nextTag}" name="tag">
                 <div id="to_do_${nextToDo}_tag_${nextTag}" class="basic stopwatch"></div>
                 <input type="submit" id="${nextToDo}" name="to_do_item" onclick="return processItem(this.id);">
-                   
-              </div>
-            </form>`;
+              </form>
+            </div>
+            `;
 
     if (x <= maxItems) {
 

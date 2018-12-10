@@ -16,15 +16,18 @@
          crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script>
+
+         var results_html = '';
          function processItem(ID){
              var name=document.getElementById(`item_name_${ID}`).value;
-             
+             results_html = results_html + '</br>' + name;
              $.ajax({
                type:'post',
                url:'submit_to_do.php',
                data:'name='+name,
                success: function(html){
-                  $('#results_container').html(html);
+                  $('#results_container').html(results_html);
+                  $(`#to_do_${ID}`).remove();
                }
              });
              return false;
@@ -45,16 +48,22 @@
             <fieldset>
                <?php include 'submit_to_do.php'?>               
                <div id="to_do_container">
-                  <form method='POST'>
-                     <div class="to_do" id="to_do_0">
+                  
+                  <div class="to_do" id="to_do_0">
+                     <form method='POST'>
+
                         <a href="#" id="remove">x</a>
                         To Do Item: <input type="text" id="item_name_0" name="todo_item_name">
                         Tag: <input type="text" id="tag_0" name="tag_0">
                         <div id="to_do_0_tag_0" class="basic stopwatch"></div>
                         <input type="submit" id="0" class="submit" name="to_do_item" onclick="processItem(this.id);">
                         <!-- <input type="submit" id="0" class="submit" name="to_do_item"> -->
-                     </div>
-                  </form>
+                     </form>
+                  </div>
+
+                  
+                     
+                  
                </div>
             </fieldset>
             <div id="add_button">
