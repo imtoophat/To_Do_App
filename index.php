@@ -28,6 +28,7 @@
                success: function(html){
                   $('#results_container').html(results_html);
                   $(`#to_do_${ID}`).remove();
+                  x--;
                }
              });
              return false;

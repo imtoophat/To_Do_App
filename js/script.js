@@ -1,3 +1,5 @@
+var maxItems = 5;
+var x = 1;
 $(document).ready(function (e) {
 
   var Stopwatch = function (elem, options) {
@@ -126,8 +128,7 @@ $(document).ready(function (e) {
   var nextToDo = 1;
   var nextTag = 1;
 
-  var maxItems = 5;
-  var x = 1;
+
   
   function updateToDoStuff() {
     nextToDo++;
