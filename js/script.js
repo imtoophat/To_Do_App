@@ -163,9 +163,10 @@ $(document).ready(function (e) {
     }
   });
 
-  $('#to_do_container').on('click', '#remove', function (e) {
+  $(document).on('click', '#remove', function (e) {
 
-    $(this).parent('div').remove();
+    e.preventDefault();
+    $(this).closest('.to_do').remove();
     x--;
   });
 
