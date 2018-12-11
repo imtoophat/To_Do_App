@@ -1,3 +1,9 @@
+<?php
+//including the database configs once
+   include_once '/php/database.php';
+   
+?>    
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -22,19 +28,18 @@
              var name=document.getElementById(`item_name_${ID}`).value;
              var tag=document.getElementById(`tag_${ID}`).value;
              var time=$(`#to_do_${ID}_tag_${ID} span`).html();
-             console.log(time);
+
              results_html = `${results_html}</br>
                            To Do Name: ${name}</br>
                            Tag: ${tag}</br>
                            Time Taken: ${time} seconds
-                           </br></br>
+                           </br></br>`;
 
-             `;
              $.ajax({
                type:'post',
-               url:'submit_to_do.php',
-               data:'name='+name,
-               success: function(html){
+               url:'ToDoItem.php',
+               data:'name='+name+'tag='+tag+'time='+time,
+               success: function(){
                   $('#results_container').html(results_html);
                   $(`#to_do_${ID}`).remove();
                   x--;
@@ -55,12 +60,11 @@
          <div class="main_body_div">
             <h1> To Do Items </h1>
             <p> Enter your to-do's here, along with the tag or category. You may time how long these tasks take you.</p>
-            <fieldset>
-               <?php include 'submit_to_do.php'?>               
+            <fieldset>           
                <div id="to_do_container">
-                  
+                  <?php include 'ToDoItem.php';?>
                   <div class="to_do" id="to_do_0">
-                     <form method='POST'>
+                     <form action="ToDoItem.php" method='POST'>
 
                         <a href="#" id="remove">x</a>
                         To Do Item: <input type="text" id="item_name_0" name="todo_item_name">
