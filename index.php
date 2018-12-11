@@ -17,10 +17,19 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script>
 
-         var results_html = '';
+         var results_html = ``;
          function processItem(ID){
              var name=document.getElementById(`item_name_${ID}`).value;
-             results_html = results_html + '</br>' + name;
+             var tag=document.getElementById(`tag_${ID}`).value;
+             var time=$(`#to_do_${ID}_tag_${ID} span`).html();
+             console.log(time);
+             results_html = `${results_html}</br>
+                           To Do Name: ${name}</br>
+                           Tag: ${tag}</br>
+                           Time Taken: ${time} seconds
+                           </br></br>
+
+             `;
              $.ajax({
                type:'post',
                url:'submit_to_do.php',
