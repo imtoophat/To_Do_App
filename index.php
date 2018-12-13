@@ -38,8 +38,9 @@
              $.ajax({
                type:'post',
                url:'ToDoItem.php',
-               data:'name='+name+'tag='+tag+'time='+time,
-               success: function(){
+               data:'name='+name+'&tag='+tag+'&time='+time,
+               success: function(data){
+                  console.log(data);
                   $('#results_container').html(results_html);
                   $(`#to_do_${ID}`).remove();
                   x--;
