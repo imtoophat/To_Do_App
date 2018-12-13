@@ -34,11 +34,15 @@
                            Tag: ${tag}</br>
                            Time Taken: ${time} seconds
                            </br></br>`;
-
+//'name='+name+'&tag='+tag+'&time='+time
              $.ajax({
                type:'post',
                url:'ToDoItem.php',
-               data:'name='+name+'&tag='+tag+'&time='+time,
+               data:{
+                name: name,
+                tag: tag,
+                time: time
+               },
                success: function(data){
                   console.log(data);
                   $('#results_container').html(results_html);
