@@ -1,7 +1,7 @@
 <?php
 //including the database configs once
    include_once '/php/database.php';
-   
+   include 'ToDoItem.php';
 ?>    
 
 <!DOCTYPE html>
@@ -34,7 +34,6 @@
                            Tag: ${tag}</br>
                            Time Taken: ${time} seconds
                            </br></br>`;
-//'name='+name+'&tag='+tag+'&time='+time
              $.ajax({
                type:'post',
                url:'ToDoItem.php',
@@ -45,6 +44,8 @@
                },
                success: function(data){
                   console.log(data);
+                  //saves to do item in database after submit is successful
+                  <?php saveToDoItem($conn);?>
                   $('#results_container').html(results_html);
                   $(`#to_do_${ID}`).remove();
                   x--;
@@ -67,7 +68,6 @@
             <p> Enter your to-do's here, along with the tag or category. You may time how long these tasks take you.</p>
             <fieldset>           
                <div id="to_do_container">
-                  <?php include 'ToDoItem.php';?>
                   <div class="to_do" id="to_do_0">
                      <form action="ToDoItem.php" method='POST'>
 

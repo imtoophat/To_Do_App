@@ -24,7 +24,7 @@
 		echo 'Time: '.$time;
 	}
 
-	public static function saveToDoItem(mysqli $conn){
+	function saveToDoItem(mysqli $conn){
 		$stmt = $conn->prepare("INSERT INTO (table name)
 							To_Do_Name, Tag_Name, Time_Taken
 							VALUES (?,?,?)");
@@ -33,6 +33,8 @@
 		$stmt->execute();
 		return $stmt->affected_rows;
 	}
+
+
 
 
 ?>
