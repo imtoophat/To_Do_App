@@ -2,7 +2,7 @@
 //including the database configs once
    include_once '/php/database.php';
    include 'ToDoItem.php';
-   include_once 'get-data.php'
+   include_once 'get-data.php';
 ?>
 <!DOCTYPE html>
 <html>
