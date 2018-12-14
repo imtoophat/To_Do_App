@@ -2,8 +2,8 @@
 //including the database configs once
    include_once '/php/database.php';
    include 'ToDoItem.php';
-?>    
-
+   include_once 'get-data.php'
+?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -23,7 +23,8 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script>
 
-         var results_html = ``;
+        // going to have to initialize results_html with data from database
+         var results_html = <?php getData();?>;
          function processItem(ID){
              var name=document.getElementById(`item_name_${ID}`).value;
              var tag=document.getElementById(`tag_${ID}`).value;
@@ -92,7 +93,9 @@
          <div class="tracker_body">
             <h1>Tracking Results</h1>
             <p>Track your progress for your to-do items here!</p>
+            <!-- have to append to results_container on load -->
             <div id="results_container">
+              <?php getData();?>
             </div>
          </div>
       </div>
