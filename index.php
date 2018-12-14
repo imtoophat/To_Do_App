@@ -21,7 +21,7 @@
       <script>
 
         // going to have to initialize results_html with data from database
-         var results_html = getData();
+         var results_html = <?php getData();?>;
          function processItem(ID){
              var name=document.getElementById(`item_name_${ID}`).value;
              var tag=document.getElementById(`tag_${ID}`).value;
