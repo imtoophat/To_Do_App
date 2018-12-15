@@ -6,5 +6,6 @@ if ($conn -> connect_errno) {
 die('ERROR NO DATABASE');
 }
 
+
 $conn -> close();
 ?>
