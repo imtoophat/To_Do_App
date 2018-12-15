@@ -1,6 +1,5 @@
 <?php
 //including the database configs once
-   include_once '/php/database.php';
    include '/php/config.php';
    include 'ToDoItem.php';
    include_once 'get-data.php';

@@ -1,6 +1,6 @@
 <?php
 
-$sqlget = "SELECT * FROM (table name)";
+$sqlget = "SELECT * FROM tags";
 $sqldata = mysqli_query($conn,$sqlget) or die('error getting data');
 
 $results_string = '';

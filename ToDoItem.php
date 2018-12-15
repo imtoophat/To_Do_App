@@ -25,8 +25,8 @@
 	}
 
 	function saveToDoItem(mysqli $conn){
-		$stmt = $conn->prepare("INSERT INTO (table name)
-							To_Do_Name, Tag_Name, Time_Taken
+		$stmt = $conn->prepare("INSERT INTO tags
+							TO_DO_NAME, TAG_NAME, TIME_TAKEN
 							VALUES (?,?,?)");
 
 		$stmt->bind_param("ssd",$name,$tag,$time);
