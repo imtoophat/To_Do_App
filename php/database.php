@@ -1,10 +1,9 @@
 <?php
 
 //default configs for connecting to the database
-
 $hostname = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'todo_db'; //enter name of the table to work with
+$database = 'todo_db'; 
 
 ?>
