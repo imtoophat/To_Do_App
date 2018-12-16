@@ -8,9 +8,9 @@ $results_string = '';
 while($row = mysqli_fetch_array($sqldata,MYSQL_ASSOC)){
 
 	$results_string = $results_string.'</br>'.
-	'To Do Name: '.$row['to+do+name'].'</br>'.
-	'Tag: '.$row['tag_name'].'</br>'.
-	'Time Taken: '.$row['time'].' seconds</br></br>';
+	'To Do Name: '.$row['TO_DO_NAME'].'</br>'.
+	'Tag: '.$row['TAG_NAME'].'</br>'.
+	'Time Taken: '.$row['TIME_TAKEN'].' seconds</br></br>';
 }
 
 function getData(){
