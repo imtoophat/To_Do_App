@@ -1,3 +1,7 @@
+<?php
+//including the database configs once
+//   include '/php/config.php';
+?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -17,24 +21,30 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script>
 
-         var results_html = ``;
+        // going to have to initialize results_html with data from database
+         var results_html = '<?php include 'get-data.php'?>';
          function processItem(ID){
              var name=document.getElementById(`item_name_${ID}`).value;
              var tag=document.getElementById(`tag_${ID}`).value;
              var time=$(`#to_do_${ID}_tag_${ID} span`).html();
-             console.log(time);
+
              results_html = `${results_html}</br>
                            To Do Name: ${name}</br>
                            Tag: ${tag}</br>
                            Time Taken: ${time} seconds
-                           </br></br>
-
-             `;
+                           </br></br>`;
              $.ajax({
                type:'post',
-               url:'submit_to_do.php',
-               data:'name='+name,
-               success: function(html){
+               url:'ToDoItem.php',
+               data:{
+                name: name,
+                tag: tag,
+                time: time
+               },
+               success: function(data){
+                  console.log(data);
+                  //saves to do item in database after submit is successful
+                  <?php include 'ToDoItem.php'?>
                   $('#results_container').html(results_html);
                   $(`#to_do_${ID}`).remove();
                   x--;
@@ -55,12 +65,10 @@
          <div class="main_body_div">
             <h1> To Do Items </h1>
             <p> Enter your to-do's here, along with the tag or category. You may time how long these tasks take you.</p>
-            <fieldset>
-               <?php include 'submit_to_do.php'?>               
+            <fieldset>           
                <div id="to_do_container">
-                  
                   <div class="to_do" id="to_do_0">
-                     <form method='POST'>
+                     <form action="ToDoItem.php" method='POST'>
 
                         <a href="#" id="remove">x</a>
                         To Do Item: <input type="text" id="item_name_0" name="todo_item_name">
@@ -83,7 +91,9 @@
          <div class="tracker_body">
             <h1>Tracking Results</h1>
             <p>Track your progress for your to-do items here!</p>
+            <!-- have to append to results_container on load -->
             <div id="results_container">
+              <?php include 'get-data.php'?>
             </div>
          </div>
       </div>

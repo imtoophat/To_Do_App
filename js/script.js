@@ -142,7 +142,7 @@ $(document).ready(function (e) {
     var html = `
             
             <div class="to_do" id="to_do_${nextToDo}">
-              <form method='POST'>
+              <form action="ToDoItem.php" method='POST'">
                 <a href="#" id="remove">x</a>
                 To Do Item: <input type="text" id="item_name_${nextToDo}" name="todo_item_name"> 
                 Tag: <input type="text" id="tag_${nextTag}" name="tag">

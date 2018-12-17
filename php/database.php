@@ -1,8 +1,9 @@
 <?php
 
-$hostname = 'ENTER IP';
+//default configs for connecting to the database
+$hostname = 'localhost';
 $username = 'root';
-$password = 'snake477';
-$database = 'organizations'; //enter name of the table to work with
+$password = 'password';
+$database = 'todo_db'; 
 
 ?>
