@@ -1,6 +1,3 @@
-TO DO APP USERS MANUAL
-The purpose of this document is to explain the application and its use to the group that you identified as your application’s users. This document should explain how they should use the system. This document should be written in clear, plain, non-technical language aimed.
-
 ------------------
 *Application Use*
 ------------------
@@ -8,7 +5,7 @@ The purpose of this document is to explain the application and its use to the gr
 The purpose of our application is to help our stakeholders to track and visualize their day-to-day productivity by tracking the time it takes for them to complete their tasks in order to help with time management. 
 
 ------------------
-*Stakeholders and Application Users *
+*Stakeholders and Application Users*
 ------------------
 Students:
 They can easily track their time spent on various classes, and compare effort required by each class.
