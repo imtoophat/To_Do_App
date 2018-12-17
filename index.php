@@ -1,8 +1,9 @@
 <?php
 //including the database configs once
-   include '/php/config.php';
-   include 'ToDoItem.php';
-   include_once 'get-data.php';
+   // include '/php/config.php';
+
+  // require 'get-data.php';
+  // require 'ToDoItem.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,7 @@
       <script>
 
         // going to have to initialize results_html with data from database
-         var results_html = <?php getData();?>;
+         var results_html = `<?php //getData();?>`;
          function processItem(ID){
              var name=document.getElementById(`item_name_${ID}`).value;
              var tag=document.getElementById(`tag_${ID}`).value;
@@ -46,7 +47,8 @@
                success: function(data){
                   console.log(data);
                   //saves to do item in database after submit is successful
-                  <?php saveToDoItem($conn);?>
+                 // <?php 
+                  //saveToDoItem($GLOBALS['conn']);?>
                   $('#results_container').html(results_html);
                   $(`#to_do_${ID}`).remove();
                   x--;
@@ -95,7 +97,7 @@
             <p>Track your progress for your to-do items here!</p>
             <!-- have to append to results_container on load -->
             <div id="results_container">
-              <?php getData();?>
+            <?php //getData();?>
             </div>
          </div>
       </div>

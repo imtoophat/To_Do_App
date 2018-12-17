@@ -1,10 +1,21 @@
 <?php
 
+//default configs for connecting to the database
+$hostname = 'localhost';
+$username = 'root';
+$password = 'password';
+$database = 'todo_db'; 
+
+
+global $conn = new mysqli($hostname, $username, $password, $database);
+if ($conn -> connect_errno) {
+die('ERROR NO DATABASE');
+}
+
 $sqlget = "SELECT * FROM tags";
 $sqldata = mysqli_query($conn,$sqlget) or die('error getting data');
 
 $results_string = '';
-
 while($row = mysqli_fetch_array($sqldata,MYSQL_ASSOC)){
 
 	$results_string = $results_string.'</br>'.
@@ -15,6 +26,7 @@ while($row = mysqli_fetch_array($sqldata,MYSQL_ASSOC)){
 
 function getData(){
 	echo $results_string;
+	echo 'some string';
 }
 
 ?>
