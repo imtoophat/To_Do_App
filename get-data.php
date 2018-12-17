@@ -1,22 +1,20 @@
 <?php
 
-//default configs for connecting to the database
 $hostname = 'localhost';
 $username = 'root';
 $password = 'password';
 $database = 'todo_db'; 
 
-
-global $conn = new mysqli($hostname, $username, $password, $database);
+$conn = new mysqli($hostname, $username, $password, $database);
 if ($conn -> connect_errno) {
 die('ERROR NO DATABASE');
 }
+$sqlget = "SELECT TO_DO_NAME, TAG_NAME, TIME_TAKEN FROM tags";
+$sqldata = $conn->query($sqlget);
 
-$sqlget = "SELECT * FROM tags";
-$sqldata = mysqli_query($conn,$sqlget) or die('error getting data');
+$results_string = ``;
 
-$results_string = '';
-while($row = mysqli_fetch_array($sqldata,MYSQL_ASSOC)){
+while($row = $sqldata->fetch_assoc()){
 
 	$results_string = $results_string.'</br>'.
 	'To Do Name: '.$row['TO_DO_NAME'].'</br>'.
@@ -24,9 +22,8 @@ while($row = mysqli_fetch_array($sqldata,MYSQL_ASSOC)){
 	'Time Taken: '.$row['TIME_TAKEN'].' seconds</br></br>';
 }
 
-function getData(){
-	echo $results_string;
-	echo 'some string';
-}
+echo $results_string;
+
+$conn->close();
 
 ?>
